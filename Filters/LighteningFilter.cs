@@ -24,14 +24,11 @@ namespace MyPhotoshop
 			var result=new Photo();
 			result.width=original.width;
 			result.height=original.height;
-			//result.data=new double[result.width,result.height,3];
 			result.data = new Pixel[result.width, result.height];
 
-			for (int x=0;x<result.width;x++)
-				for (int y=0;y<result.height;y++)
-						result.data[x, y] = new Pixel( Color.FromArgb((int)(original.data[x, y].color.R * parameters[0]), (int)(original.data[x, y].color.G * parameters[0]), (int)(original.data[x, y].color.B * parameters[0])));
-			//for (int z=0;z<3;z++)
-			//	result.data[x,y,z]=original.data[x,y,z]*parameters[0];
+			for (int x = 0; x < result.width; x++)
+				for (int y = 0; y < result.height; y++)
+					result.data[x, y] = original.data[x, y].getNewPixelColor(parameters[0]);
 			return result;
 		}
 

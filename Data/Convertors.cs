@@ -10,17 +10,11 @@ namespace MyPhotoshop
 			var photo=new Photo();
 			photo.width=bmp.Width;
 			photo.height=bmp.Height;
-			//photo.data=new double[bmp.Width,bmp.Height,3];
 			photo.data = new Pixel[bmp.Width, bmp.Height];
-			for (int x=0;x<bmp.Width;x++)
-				for (int y=0;y<bmp.Height;y++)
-				{
-				Color pixel=bmp.GetPixel (x,y);
-				photo.data[x, y] = new Pixel(pixel);
-				//photo.data[x,y,0]=(double)pixel.R/255;
-				//photo.data[x,y,1]=(double)pixel.G/255;
-				//photo.data[x,y,2]=(double)pixel.B/255;
-				}
+			for (int x=0; x<bmp.Width; x++)
+				for (int y=0; y<bmp.Height; y++)
+					photo.data[x, y] = new Pixel(bmp.GetPixel(x, y));
+				
 			return photo;
 		}
 		
