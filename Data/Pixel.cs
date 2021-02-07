@@ -22,12 +22,11 @@ namespace MyPhotoshop
         }
         public static Color operator *(Pixel pixel, double parameter)
         {
-            return Color.FromArgb((int)(pixel.color.R * parameter), (int)(pixel.color.G * parameter), (int)(pixel.color.B * parameter));
+            return Color.FromArgb(Trim(pixel.color.R * parameter), Trim(pixel.color.G * parameter), Trim(pixel.color.B * parameter));
         }
 
         public Pixel getNewPixelColor(double parameter)
         {
-            parameter = parameter >= 1 ? 1 : parameter;
             return new Pixel(Color.FromArgb(Trim(this.color.R * parameter), Trim(this.color.G * parameter), Trim(this.color.B * parameter)));
         }
 

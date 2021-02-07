@@ -9,7 +9,7 @@ namespace MyPhotoshop
 		{
 			return new []
 			{
-				new ParameterInfo { Name="Коэффициент", MaxValue=1, MinValue=0, Increment=0.1, DefaultValue=1 }
+				new ParameterInfo { Name="Коэффициент", MaxValue=10, MinValue=0, Increment=0.1, DefaultValue=1 }
 				
 			};
 		}
@@ -25,7 +25,8 @@ namespace MyPhotoshop
 			for (int x = 0; x < result.width; x++)
 				for (int y = 0; y < result.height; y++)
 					result[x, y] = new Pixel(original[x, y] * parameters[0]); 
-            return result;
+
+			return result;
 		}
 
         private int ToChannel(double v)

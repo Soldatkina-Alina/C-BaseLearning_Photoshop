@@ -7,10 +7,7 @@ namespace MyPhotoshop
 {
     class GrayscaleFilter : IFilter
     {
-        public ParameterInfo[] GetParameters()
-        {
-            return null;
-        }
+        public ParameterInfo[] GetParameters() => null;
 
         public override string ToString()
         {
