@@ -22,5 +22,13 @@ namespace MyPhotoshop
             parameter = parameter >= 1 ? 1 : parameter;
             return new Pixel(Color.FromArgb((int)(this.color.R * parameter), (int)(this.color.G * parameter), (int)(this.color.B * parameter)));
         }
+
+        public Pixel getNewPixelBlackWhiteColor()
+        {
+            int c = (this.color.R + this.color.G + this.color.B) / 3;
+            // собираем новый пиксель по частям (по каналам)
+            UInt32 newPixel = 0xFF000000 | ((UInt32)c << 16) | ((UInt32)c << 8) | ((UInt32)c);
+            return new Pixel(Color.FromArgb((int)newPixel));
+        }
     }
 }

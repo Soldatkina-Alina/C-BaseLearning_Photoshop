@@ -9,7 +9,7 @@ namespace MyPhotoshop
 		{
 			return new []
 			{
-				new ParameterInfo { Name="Коэффициент", MaxValue=10, MinValue=0, Increment=0.1, DefaultValue=1 }
+				new ParameterInfo { Name="Коэффициент", MaxValue=1, MinValue=0, Increment=0.1, DefaultValue=1 }
 				
 			};
 		}

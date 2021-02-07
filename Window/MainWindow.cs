@@ -91,7 +91,8 @@ namespace MyPhotoshop
 			var filter=(IFilter)filtersSelect.SelectedItem;
 			if (filter==null) return;
 			if (parametersPanel!=null) Controls.Remove (parametersPanel);
-			parametersControls=new List<NumericUpDown>();
+			if (filter.GetParameters() == null) return;
+			parametersControls =new List<NumericUpDown>();
 			parametersPanel=new Panel();
 			parametersPanel.Left=filtersSelect.Left;
 			parametersPanel.Top=filtersSelect.Bottom+10;
@@ -99,8 +100,8 @@ namespace MyPhotoshop
 			parametersPanel.Height=ClientSize.Height-parametersPanel.Top;
 			
 			int y=0;
-			
-			foreach(var param in filter.GetParameters ())
+
+			foreach (var param in filter.GetParameters ())
 			{
 				var label=new Label();
 				label.Left=0;
