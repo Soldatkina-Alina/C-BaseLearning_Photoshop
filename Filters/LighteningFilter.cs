@@ -21,15 +21,11 @@ namespace MyPhotoshop
 		
 		public Photo Process(Photo original, double[] parameters)
 		{
-			var result=new Photo();
-			result.width=original.width;
-			result.height=original.height;
-			result.data = new Pixel[result.width, result.height];
-
-			for (int x = 0; x < result.width; x++)
-				for (int y = 0; y < result.height; y++)
-					result.data[x, y] = original.data[x, y].getNewPixelColor(parameters[0]);
-			return result;
+			var result=new Photo(original.width, original.height);
+            for (int x = 0; x < result.width; x++)
+                for (int y = 0; y < result.height; y++)
+                    result[x, y] = original[x, y].getNewPixelColor(parameters[0]);
+            return result;
 		}
 
         private int ToChannel(double v)

@@ -3,10 +3,10 @@ using System.Drawing;
 
 namespace MyPhotoshop
 {
-    public class Pixel
+    public struct Pixel
     {
-        public Color color = new Color();
-
+        //public Color color = new Color();
+        public Color color;
         public Pixel(Color color)
         {
             this.color = color;
