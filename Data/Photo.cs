@@ -4,8 +4,8 @@ namespace MyPhotoshop
 {
 	public class Photo
 	{
-		public int width;
-		public int height;
+		public readonly int width;
+		public readonly int height;
 
 		public Photo(int width, int height)
         {
