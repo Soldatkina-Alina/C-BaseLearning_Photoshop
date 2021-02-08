@@ -32,10 +32,8 @@ namespace MyPhotoshop
 
         public Pixel getNewPixelBlackWhiteColor()
         {
-            int c = (this.color.R + this.color.G + this.color.B) / 3;
-            // собираем новый пиксель по частям (по каналам)
-            UInt32 newPixel = 0xFF000000 | ((UInt32)c << 16) | ((UInt32)c << 8) | ((UInt32)c);
-            return new Pixel(Color.FromArgb((int)newPixel));
+            int gray = (this.color.R + this.color.G + this.color.B) / 3;
+            return new Pixel(Color.FromArgb(gray, gray, gray));
         }
     }
 }
