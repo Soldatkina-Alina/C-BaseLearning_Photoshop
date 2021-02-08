@@ -11,16 +11,15 @@ namespace MyPhotoshop
         {
 			this.width = width;
 			this.height = height;
-        }
+			data = new Pixel[width, height];
+		}
 
 		Pixel[,] data;
 
 		public Pixel this[int x, int y]
         {
 			get { return data[x, y]; }
-			set { if (data == null) 
-					data = new Pixel[width, height]; 
-				data[x, y] = value; }
+            set { data[x, y] = value; }
         }
 
 	}
