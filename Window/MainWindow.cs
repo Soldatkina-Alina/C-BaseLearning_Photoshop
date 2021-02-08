@@ -133,7 +133,7 @@ namespace MyPhotoshop
 		{
 			var data=parametersControls.Select(z=>(double)z.Value).ToArray();
 			var filter=(IFilter)filtersSelect.SelectedItem;
-			Photo result=null;
+			Photo result;
      		result=filter.Process(originalPhoto,data);
 	        var resultBmp=Convertors.Photo2Bitmap(result);
 			if (resultBmp.Width>originalBmp.Width || resultBmp.Height>originalBmp.Height)

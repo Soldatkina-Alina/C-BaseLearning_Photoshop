@@ -20,9 +20,10 @@ namespace MyPhotoshop
             if (value < minPixel) return minPixel;
             return (int)value;
         }
-        public static Color operator *(Pixel pixel, double parameter)
+
+        public static Pixel operator *(Pixel pixel, double parameter)
         {
-            return Color.FromArgb(Trim(pixel.color.R * parameter), Trim(pixel.color.G * parameter), Trim(pixel.color.B * parameter));
+            return new Pixel(Color.FromArgb(Trim(pixel.color.R * parameter), Trim(pixel.color.G * parameter), Trim(pixel.color.B * parameter)));
         }
 
         public Pixel getNewPixelColor(double parameter)

@@ -24,7 +24,7 @@ namespace MyPhotoshop
 			var result=new Photo(original.width, original.height);
 			for (int x = 0; x < result.width; x++)
 				for (int y = 0; y < result.height; y++)
-					result[x, y] = new Pixel(original[x, y] * parameters[0]); 
+					result[x, y] = original[x, y] * parameters[0]; 
 
 			return result;
 		}
