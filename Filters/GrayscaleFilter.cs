@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace MyPhotoshop
 {
@@ -24,7 +25,8 @@ namespace MyPhotoshop
 
         public Pixel GrayFilter(Pixel original, double[] parameters)
         {
-            return original.PixelBlackWhiteColor;
+            int gray = (original.color.R + original.color.G + original.color.B) / 3;
+            return new Pixel(Color.FromArgb(gray, gray, gray));
         }
 
     }
