@@ -9,6 +9,7 @@ namespace MyPhotoshop
         readonly static int minPixel = 0;
         readonly static int maxPixel = 255;
 
+
         public Pixel PixelBlackWhiteColor
         {
             get

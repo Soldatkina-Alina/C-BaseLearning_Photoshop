@@ -5,9 +5,9 @@ using System.Text;
 
 namespace MyPhotoshop
 {
-    class GrayscaleFilter : IFilter
+    class GrayscaleFilter : PixelFilter
     {
-        public ParameterInfo[] GetParameters()
+        public override ParameterInfo[] GetParameters()
         {
             return new ParameterInfo[0];
         }
@@ -17,13 +17,15 @@ namespace MyPhotoshop
             return "Черно-белая гамма";
         }
 
-        public Photo Process(Photo original, double[] parameters)
+        public override Photo Process(Photo original, double[] parameters)
         {
-            var result = new Photo(original.width, original.height);
-            for (int x = 0; x < result.width; x++)
-                for (int y = 0; y < result.height; y++)
-                    result[x, y] = original[x, y].PixelBlackWhiteColor;
-            return result;
+            return ProcessPixel(original, parameters, GrayFilter);
         }
+
+        public Pixel GrayFilter(Pixel original, double[] parameters)
+        {
+            return original.PixelBlackWhiteColor;
+        }
+
     }
 }

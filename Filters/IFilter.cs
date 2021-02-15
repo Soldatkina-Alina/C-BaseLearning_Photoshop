@@ -2,9 +2,9 @@ using System;
 
 namespace MyPhotoshop
 {
+    public delegate Pixel FilterProcess(Pixel original, double[] parameters);
 
-	
-	public interface IFilter
+    public interface IFilter
 	{
         /// <summary>
         /// ���� ����� ������ ���������� �������� ����������, ������� ���������� � NumericUpDown-��������
@@ -20,6 +20,8 @@ namespace MyPhotoshop
         /// <param name="parameters"></param>
         /// <returns></returns>
 		Photo Process(Photo original, double[] parameters);
-	}
+
+        Photo ProcessPixel(Photo original, double[] parameters, FilterProcess filterProcess);
+    }
 }
 
