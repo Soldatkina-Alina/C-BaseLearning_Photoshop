@@ -8,9 +8,8 @@ namespace MyPhotoshop
 {
     class GrayscaleFilter : PixelFilter
     {
-        public override ParameterInfo[] GetParameters()
+        public GrayscaleFilter() : base(new GrayscaleParameters())
         {
-            return new ParameterInfo[0];
         }
 
         public override string ToString()
@@ -18,13 +17,7 @@ namespace MyPhotoshop
             return "Черно-белая гамма";
         }
 
-        public Pixel GrayFilter(Pixel original, double[] parameters)
-        {
-            int gray = (original.color.R + original.color.G + original.color.B) / 3;
-            return new Pixel(Color.FromArgb(gray, gray, gray));
-        }
-
-        public override Pixel ProcessPixel(Pixel original, double[] parameters)
+        public override Pixel ProcessPixel(Pixel original, IParameters parameters)
         {
             int gray = (original.color.R + original.color.G + original.color.B) / 3;
             return new Pixel(Color.FromArgb(gray, gray, gray));
