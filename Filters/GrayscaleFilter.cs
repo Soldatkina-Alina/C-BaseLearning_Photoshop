@@ -7,7 +7,10 @@ namespace MyPhotoshop
 {
     class GrayscaleFilter : IFilter
     {
-        public ParameterInfo[] GetParameters() => null;
+        public ParameterInfo[] GetParameters()
+        {
+            return new ParameterInfo[0];
+        }
 
         public override string ToString()
         {
@@ -19,7 +22,7 @@ namespace MyPhotoshop
             var result = new Photo(original.width, original.height);
             for (int x = 0; x < result.width; x++)
                 for (int y = 0; y < result.height; y++)
-                    result[x, y] = original[x, y].getNewPixelBlackWhiteColor();
+                    result[x, y] = original[x, y].PixelBlackWhiteColor;
             return result;
         }
     }

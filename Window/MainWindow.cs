@@ -91,7 +91,6 @@ namespace MyPhotoshop
 			var filter=(IFilter)filtersSelect.SelectedItem;
 			if (filter==null) return;
 			if (parametersPanel!=null) Controls.Remove (parametersPanel);
-			if (filter.GetParameters() == null) return;
 			parametersControls =new List<NumericUpDown>();
 			parametersPanel=new Panel();
 			parametersPanel.Left=filtersSelect.Left;
