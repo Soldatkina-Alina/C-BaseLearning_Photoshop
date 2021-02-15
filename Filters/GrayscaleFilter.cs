@@ -18,16 +18,16 @@ namespace MyPhotoshop
             return "Черно-белая гамма";
         }
 
-        public override Photo Process(Photo original, double[] parameters)
-        {
-            return ProcessPixel(original, parameters, GrayFilter);
-        }
-
         public Pixel GrayFilter(Pixel original, double[] parameters)
         {
             int gray = (original.color.R + original.color.G + original.color.B) / 3;
             return new Pixel(Color.FromArgb(gray, gray, gray));
         }
 
+        public override Pixel ProcessPixel(Pixel original, double[] parameters)
+        {
+            int gray = (original.color.R + original.color.G + original.color.B) / 3;
+            return new Pixel(Color.FromArgb(gray, gray, gray));
+        }
     }
 }

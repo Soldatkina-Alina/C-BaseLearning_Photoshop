@@ -19,11 +19,6 @@ namespace MyPhotoshop
 			return "Осветление/затемнение";
 		}
 		
-		public override Photo Process(Photo original, double[] parameters)
-		{
-			return ProcessPixel(original, parameters, LightFilter);
-		}
-
 		public Pixel LightFilter(Pixel original, double[] parameters)
         {
 			return original * parameters[0];
@@ -33,6 +28,11 @@ namespace MyPhotoshop
         {
             throw new NotImplementedException();
         }
+
+        public override Pixel ProcessPixel(Pixel original, double[] parameters)
+        {
+			return original * parameters[0];
+		}
     }
 }
 
